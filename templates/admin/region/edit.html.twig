@@ -1,0 +1,35 @@
+{% extends 'admin/adminTemplates.html.twig' %}
+
+{% block title %}Edit Region{% endblock %}
+
+{% block activeRegion %}
+active
+{% endblock %}
+
+{% block content %}
+
+    <h1>Edit Region</h1>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-xl-8 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="">
+                            <h1 class="mb-0">
+                                <a href="{{ path('region_index') }}" class="fas fa-arrow-left text-primary"></a>
+                                Modification d'une région
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{ include('admin/region/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'admin/adminTemplates.html.twig' %}
+
+{% block title %}Region{% endblock %}
+
+{% block activeRegion %}
+active
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-xl-8 order-xl-1">
+            <div class="card shadow">
+                {% for message in app.session.flashBag.get('failed') %}
+                    <div class="alert alert-dismissible alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+                {% for message in app.session.flashBag.get('success') %}
+                    <div class="alert alert-dismissible alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h1 class="mb-0">
+                                <a href="{{ path('region_index') }}">
+                                    <i class="fas fa-arrow-left text-primary"></i>
+                                </a>
+                                Région
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <tbody>
+                            <tr>
+                                <th>Nom</th>
+                                <td>{{ region.nom }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <br/>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="" class="btn btn-light">
+                                Voir tous les offres de cette région
+                            </a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="{{ path('region_edit', {'id': region.id}) }}" class="btn btn-info">Modifier</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#
+    {{ include('admin/region/_delete_form.html.twig') }}
+    #}
+{% endblock %}
